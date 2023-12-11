@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-button slot="end" color="danger" id="present-alert" (click)="presentLogoutAlert()">Cerrar sesión</ion-button>
+    <ion-title>RegistrApp</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Tu panel</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Bienvenido {{usuario.tipo_usuario}} :D</p>
+      
+      <p>Nombre Completo: {{usuario.nombre}} {{usuario.ap_paterno}} {{usuario.ap_materno}}</p>
+
+      <p>Fecha de nacimiento: {{usuario.fecha_nacimiento}}</p>
+      
+      <p>Correo: {{usuario.correo}}</p>
+
+    </ion-card-content>
+    <ion-card-content>
+      <div *ngIf="apodData">
+        <h2>{{ apodData.title }}</h2>
+        <img [src]="apodData.url" alt="{{ apodData.title }}" style="width: 100%; max-width: 300px; height: auto; margin: 0 auto; display: block;">
+        <p>{{ apodData.explanation }}</p>
+      </div> 
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-buttons start>
+    <ion-back-button position="start">Volver</ion-back-button>
+  </ion-buttons>
+</ion-header>
+<ion-content>
+  
+  <div class="contenido">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Crear una cuenta</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form [formGroup]="usuario" (ngSubmit)="iqualPassword()">
+        <ion-item>
+          <ion-input formControlName="rut" label="Rut" labelPlacement="stacked" placeholder="Ingrese rut" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input formControlName="nombre" label="Nombre" labelPlacement="stacked" placeholder="Ingrese su primer nombre" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input formControlName="ap_paterno" label="Apellido Paterno" labelPlacement="stacked" placeholder="Ingrese su apellido paterno" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input formControlName="ap_materno" label="Apellido Materno" labelPlacement="stacked" placeholder="Ingrese su apellido materno" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input formControlName="fecha_nacimiento" label="Fecha nacimiento" labelPlacement="stacked" type="date"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input formControlName="correo" label="Correo electronico" labelPlacement="stacked" placeholder="Ingrese su correo @duocuc.cl" type="email"></ion-input>
+        </ion-item>
+        <ion-item [disabled]="tipo_usuario">
+          <ion-input formControlName="tipo_usuario" value="alumno" label="Tipo de usuario"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input formControlName="clave_1" label="Clave" labelPlacement="stacked" placeholder="Caracteres   [0-9a-zA-Z._]{6,20}" type="password"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input formControlName="clave_2" label="Repita clave" labelPlacement="stacked" placeholder="Repita la clave anterior" type="password"></ion-input>
+        </ion-item>
+        <div class="botones">
+          <ion-button type="submit" expand="block" color="success" [disabled]="usuario.invalid">Guardar</ion-button>
+          <ion-button type="reset" expand="block" color="dark">Limpiar</ion-button>
+        </div>
+      </form>
+
+    </ion-card-content>
+  </ion-card>
+  </div>
+</ion-content>

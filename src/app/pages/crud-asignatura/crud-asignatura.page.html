@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>crud-asignatura</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="contenido">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Registrar asignaturas</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form [formGroup]="asignatura" (ngSubmit)="guardar()">
+      <ion-item>
+        <ion-input  formControlName="codigo" id="codigoAsig"
+                    label="Codigo asignatura"
+                    labelPlacement="stacked"
+                    type="text"
+                    placeholder="Ingrese un codigo para la asignatura"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input  formControlName="nombre" id="nombreAsig"
+                    label="nombre asignatura"
+                    labelPlacement="stacked"
+                    type="text"
+                    placeholder="Ingrese un nombre para la asignatura"></ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-select formControlName="rut_docente" label="Docente" placeholder="Seleccione docente">
+          <ion-select-option *ngFor="let docente of docentes " [value]="docente.rut">{{docente.nombre}} {{docente.ap_paterno}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <div>
+        <ion-button type="submit" expand="block" color="success" [disabled]="asignatura.invalid">Guardar</ion-button>
+        <ion-button expand="block" color="warning" (click)="modificarFIRE()" [disabled]="asignatura.invalid">Modificar</ion-button>
+        <ion-button type="reset" expand="block" color="dark">Limpiar</ion-button>
+      </div>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</div>
+<div class="contenido">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>ASIGNATURAS REGISTRADAS</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list *ngFor="let asig of asignaturas">
+        <ion-item>
+          <ion-button color="warning" slot="start" (click)="buscar(asig.codigo_firebase)">
+            <ion-icon slot="icon-only" name="search"></ion-icon>
+          </ion-button>
+          <ion-label>{{asig.nombre | titlecase}} - {{asig.rut_docente | uppercase}}</ion-label>
+          <ion-button color="danger" slot="end" (click)="eliminar(asig.codigo_firebase)">
+            <ion-icon slot="icon-only" name="trash"></ion-icon>
+          </ion-button>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</div>
+</ion-content>

@@ -1,0 +1,10 @@
+<ion-header>
+  <ion-button color="danger" (click)="logout()">Cerrar sesion</ion-button>
+</ion-header>
+<ion-content>
+  <div class="ion-text-center margen">
+    <img src="../../../assets/img/Escanner.png">
+    <ion-input [(ngModel)]="codigoClase" label="Codigo Asistencia" placeholder="Ingrese el codigo de la pizarra" labelPlacement="floating" ></ion-input>
+    <ion-button type="submit" (click)="agregarAlumno()" class="margen  ">Registrar asistencia</ion-button>
+  </div>  
+</ion-content>

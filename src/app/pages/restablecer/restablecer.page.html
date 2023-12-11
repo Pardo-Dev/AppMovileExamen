@@ -1,0 +1,20 @@
+<ion-content>
+  <div class="contenido">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Restablecer contraseña</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-input [(ngModel)]="correo" id="txtCorreo" label="Correo" labelPlacement="stacked" placeholder="Ingrese un correo valido!"></ion-input>
+      </ion-item>
+      <div class="buttons">
+        <ion-button expand="block" (click)="validarCorreo()" color="primary" >Restablecer</ion-button>
+      </div>
+      <div>
+        <ion-button expand="block" color="warning" [routerLink]="['/login']" >Volver</ion-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</div>
+</ion-content>

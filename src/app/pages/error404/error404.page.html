@@ -1,0 +1,14 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>error404</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-button [routerLink]="['/login']">INICIAR SESION</ion-button>
+  <div *ngIf="apodData">
+    <h2>{{ apodData.title }}</h2>
+    <img [src]="apodData.url" alt="{{ apodData.title }}">
+    <p>{{ apodData.explanation }}</p>
+  </div>
+</ion-content>

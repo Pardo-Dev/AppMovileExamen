@@ -1,0 +1,42 @@
+ion-content{
+    --background: url(../../../assets/img/fondoApp.jpg);
+}
+
+.contenido {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
+
+ion-card-title{
+    color: black;
+    text-align: center;
+}
+
+ion-card{
+    width: 85%;
+    margin-top: 5%;
+    border-radius: 25px 25px 25px 25px;
+    --background: white;
+    color: black;
+}
+
+ion-item{
+    color: black;
+    --background: white;
+}
+
+.botones{
+    margin-top: 7%;
+}
+ion-button{
+    margin: 5%;
+}
+
+ion-list{
+    --background: white;
+}
+ion-label{
+    --background: white;
+}

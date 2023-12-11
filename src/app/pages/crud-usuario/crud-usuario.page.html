@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-toolbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="contenido">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>ADMINISTRAR USUARIOS</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form [formGroup]="usuario" (ngSubmit)="guardar()">
+        <ion-item>
+          <ion-input id="rutUsuario" formControlName="rut" label="Rut" labelPlacement="stacked" placeholder="Ingrese rut" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input id="nombreUsuario" formControlName="nombre" label="Nombre" labelPlacement="stacked" placeholder="Ingrese su primer nombre" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input id="ApellidoPUsuario" formControlName="ap_paterno" label="Apellido Paterno" labelPlacement="stacked" placeholder="Ingrese su apellido paterno" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input id="ApellidoMUsuario" formControlName="ap_materno" label="Apellido Materno" labelPlacement="stacked" placeholder="Ingrese su apellido materno" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input id="correoUsuario" formControlName="correo" label="Correo" labelPlacement="stacked" placeholder="Ingrese correo" type="mail"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input id="fechaNacUsuario" formControlName="fecha_nacimiento" label="Fecha nacimiento" labelPlacement="stacked" placeholder="Ingrese fecha nacimiento" type="date"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-select id="tipoUsuario" formControlName="tipo_usuario" label="Tipo usuario" placeholder="Seleccione usuario">
+            <ion-select-option value="administrador">Administrador</ion-select-option>
+            <ion-select-option value="docente">Docente</ion-select-option>
+            <ion-select-option value="alumno">Alumno</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-input id="clave1" formControlName="clave_1" label="Clave" labelPlacement="stacked" placeholder="Caracteres   [0-9a-zA-Z._]{6,20}" type="password"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input id="clave2" formControlName="clave_2" label="Repita clave" labelPlacement="stacked" placeholder="Repita la clave anterior" type="password"></ion-input>
+        </ion-item>
+        <div class="botones">
+          <ion-button type="submit" expand="block" color="success" [disabled]="usuario.invalid">Guardar</ion-button>
+          <ion-button (click)="modificar()" expand="block" color="warning" [disabled]="usuario.invalid">Modificar</ion-button>
+          <ion-button type="reset" expand="block" color="dark">Limpiar</ion-button>
+        </div>
+      </form>
+    </ion-card-content>
+  
+  </ion-card>
+</div>
+<div class="contenido">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Listado de usuarios</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list *ngFor="let usu of usuarios1">
+        <ion-item>
+          <ion-button color="warning" slot="start" (click)="buscar(usu.codigo_firebase)">
+            <ion-icon slot="icon-only" name="search"></ion-icon>
+          </ion-button>
+          <ion-label>{{ usu.nombre }} - {{ usu.correo }}</ion-label>
+          <ion-button color="danger" slot="end" (click)="eliminar(usu.codigo_firebase)">
+            <ion-icon slot="icon-only" name="trash"></ion-icon>
+          </ion-button>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</div>
+</ion-content>

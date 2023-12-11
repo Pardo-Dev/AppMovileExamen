@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>qr-code</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <p aling="center">
+    <qrcode [qrdata]="data" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
+  </p>
+  <div>
+    <ion-label>{{data}}</ion-label>
+  </div>
+</ion-content>
